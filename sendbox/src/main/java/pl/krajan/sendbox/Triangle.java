@@ -5,4 +5,21 @@ package pl.krajan.sendbox;
  */
 public class Triangle {
     public double alpha;
+
+    public Triangle(double alpha){
+        this.alpha = alpha;
+    }
+
+    public double pierwiastek(double a){
+        return Math.sqrt(a);
+    }
+    public double potega(double a, double b){
+        return Math.pow(a,b);
+    }
+    public double poletrojkata(Triangle t){
+        return (((potega(this.alpha, 2)*pierwiastek(3)))/4);
+    }
+    public double wysokosctrojkata(Triangle t){
+        return ((this.alpha*pierwiastek(3))/2);
+    }
 }
