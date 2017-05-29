@@ -1,23 +1,26 @@
 package pl.krajan.sendbox;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
-
 public class MyFirstProgram {
 
     public static void main(String[] args) {
 
-      hello("Adam");
       hello("User");
-      hello("Testy");
 
       Squeare s = new Squeare(9);
+
+      //Point p = new Point ((12, 0),(1,1))
+      //double p1[] = new double[] {7, 0}, p2[] = new double[] {12, 3};
 
       Rectangle r = new Rectangle(10,2);
 
       Triangle t = new Triangle(10);
 
-      Homework h = new Homework(120, 90, 7);
+      Hometraining h = new Hometraining(120, 90, 7);
 
+      //System.out.println("Odleglosc miedzy punktem A" + p.p + " i B" + p.k + " = " + p.pole());
+        //System.out.println("Odleglosc = " + Math.sqrt(
+               // (p2[0] - p1[0])*(p2[0] - p1[0])
+                       // + (p2[1] - p1[1])*(p2[1] - p1[1])));
         System.out.println("Pole kwadratu o dlugosci " + s.l + " = " + s.wzorkwadratu());
         System.out.println("Pole ptostokatu o dlugosci " + r.a + " i szerokosci " + r.b +" = " + r.prostokatu());
         System.out.println("HOMEWORK Sum " + h.u + " and " + h.w + " divided " + h.z + " results " + h.resoulthomerork());

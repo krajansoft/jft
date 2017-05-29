@@ -3,12 +3,12 @@ package pl.krajan.sendbox;
 /**
  * Created by kraja on 2017-05-28.
  */
-public class Homework {
+public class Hometraining {
     public double u; //pierwsza liczba
     public double w; //druga liczba
     public double z; //trzecia liczba
 
-    public Homework(double u, double w, double z) {
+    public Hometraining(double u, double w, double z) {
 
         this.u = u;
         this.w = w;
