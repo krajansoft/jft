@@ -1,0 +1,5 @@
+gradle build
+gradle run
+gradle wrapper - opakowanie wszystkiego gdzieś
+gradlew build - zbudowanie gdzieś
+gradlew run  - wykonanie
