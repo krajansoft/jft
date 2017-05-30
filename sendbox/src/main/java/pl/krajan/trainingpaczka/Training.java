@@ -1,6 +1,5 @@
 package pl.krajan.trainingpaczka;
 
-import pl.krajan.sendbox.Hometraining;
 import pl.krajan.sendbox.Rectangle;
 import pl.krajan.sendbox.Squeare;
 import pl.krajan.sendbox.Triangle;
