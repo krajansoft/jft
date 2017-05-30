@@ -1,6 +1,6 @@
 package pl.krajan.sendbox;
 
-public class MyFirstProgram {
+public class MyHomework {
 
     public static void main(String[] args) {
 
