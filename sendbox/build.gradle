@@ -1,6 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'application'
-mainClassName = "pl.krajan.sendbox.MyFirstProgram"
+mainClassName = "pl.krajan.sendbox.MyHomework"
 
 repositories{
     mavenCentral()
