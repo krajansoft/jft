@@ -13,11 +13,11 @@ public class Triangle {
     public double pierwiastek(double a){
         return Math.sqrt(a);
     }
-    public double potega(double a, double b){
+    public double potegaq(double a, double b){
         return Math.pow(a,b);
     }
     public double poletrojkata(Triangle t){
-        return (((potega(this.alpha, 2)*pierwiastek(3)))/4);
+        return (((potegaq(this.alpha, 2)*pierwiastek(3)))/4);
     }
     public double wysokosctrojkata(Triangle t){
         return ((this.alpha*pierwiastek(3))/2);
