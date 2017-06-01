@@ -9,7 +9,7 @@ public class Squeare {
     public Squeare(double l){
 
         this.l = l;
-    }  // konstruktor przez ktory wiemy
+    }  // konstruktor przez ktory wiemy co przekazujemy do głównego wywołania
 
     public double wzorkwadratu(){
         return this.l * this.l;
