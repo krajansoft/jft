@@ -16,12 +16,12 @@ public class GroupCreationTests {
     public void setUp() throws Exception {
         wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-        environment("http://localhost:8080/addressbook/");
+        environment(new Environment("http://localhost:8080/addressbook/"));
         login(new Logownie("admin", "secret"));
     }
 
-    private void environment(String url) {
-        wd.get(url);
+    private void environment(Environment environment) {
+            wd.get(environment.getUrl());
     }
 
     private void login(Logownie login) {
