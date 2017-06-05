@@ -1,4 +1,4 @@
-package pl.krajan.addressbook;
+package pl.krajan.addressbook.model;
 
 public class Logownie {
     private final String username;

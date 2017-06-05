@@ -1,4 +1,4 @@
-package pl.krajan.addressbook;
+package pl.krajan.addressbook.model;
 
 public class ContactData {
     private final String firstname;

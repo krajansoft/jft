@@ -6,6 +6,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pl.krajan.addressbook.model.ContactData;
+import pl.krajan.addressbook.model.Environment;
+import pl.krajan.addressbook.model.Logownie;
 
 import java.util.concurrent.TimeUnit;
 
