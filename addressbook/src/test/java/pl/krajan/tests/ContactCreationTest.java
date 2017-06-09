@@ -1,7 +1,7 @@
 package pl.krajan.tests;
 
 import org.testng.annotations.Test;
-import pl.krajan.ContactData;
+import pl.krajan.model.ContactData;
 
 public class ContactCreationTest extends TestBase {
     

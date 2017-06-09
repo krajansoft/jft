@@ -2,18 +2,18 @@ package pl.krajan.tests;
 
 
 import org.testng.annotations.Test;
-import pl.krajan.GroupData;
+import pl.krajan.model.GroupData;
 
 
 public class GroupCreationTest extends TestBase {
 
     @Test
     public void testGroupCreation() {
-        app.goToGroupPage();
-        app.initGroupCreation();
-        app.fillGroupForm(new GroupData("AdamQA1", "Header test", "Footer test"));
-        app.submitGroupCreation();
-        app.returnToGroupPage();
+        app.getNawigationHelper().goToGroupPage();
+        app.getGroupHelper().initGroupCreation();
+        app.getGroupHelper().fillGroupForm(new GroupData("AdamQA1", "Header test", "Footer test"));
+        app.getGroupHelper().submitGroupCreation();
+        app.getGroupHelper().returnToGroupPage();
     }
 
 }

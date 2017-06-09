@@ -1,4 +1,4 @@
-package pl.krajan;
+package pl.krajan.model;
 
 public class GroupData {
     private final String name;
