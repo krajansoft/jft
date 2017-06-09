@@ -12,8 +12,14 @@ public class NawigationHelper {
     public NawigationHelper(FirefoxDriver wd) {
         this.wd = wd;
     }
-
     public void goToGroupPage() {
         wd.findElement(By.linkText("groups")).click();
+    }
+    public void goToPageNewContact() {
+        wd.findElement(By.linkText("add new")).click();
+    }
+
+    public void goToHome() {
+        wd.findElement(By.linkText("home")).click();
     }
 }

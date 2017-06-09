@@ -42,14 +42,6 @@ public class ApplicationManager {
         wd.quit();
     }
 
-    public void goToPageNewContact() {
-        wd.findElement(By.linkText("add new")).click();
-    }
-
-    public void goToHome() {
-        wd.findElement(By.linkText("home")).click();
-    }
-
     public GroupHelper getGroupHelper() {
         return groupHelper;
     }
