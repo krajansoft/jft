@@ -1,15 +1,14 @@
-package pl.krajan;
+package pl.krajan.tests;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 public class ContactDeletionTest extends TestBase {
     
     @Test
     public void testContactDeletion() {
-    goToHome();
-    selectedContact();
-    deleteContact();
+    app.goToHome();
+    app.selectedContact();
+    app.deleteContact();
     //goToHome();
     }
 
