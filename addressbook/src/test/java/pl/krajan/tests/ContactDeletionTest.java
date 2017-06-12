@@ -9,7 +9,7 @@ public class ContactDeletionTest extends TestBase {
     app.getNawigationHelper().goToHome();
     app.getContactHelper().selectedContact();
     app.getContactHelper().deleteContact();
-    //goToHome();
+    //app.getNawigationHelper().goToHome();
     }
 
 }
