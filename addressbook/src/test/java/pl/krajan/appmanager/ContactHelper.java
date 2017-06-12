@@ -48,4 +48,8 @@ public class ContactHelper extends BaseHelper {
     public void submitContactModification() {
         click(By.name("update"));
     }
+
+    public void alertAfterDeleteContact() {
+        wd.switchTo().alert().accept();
+    }
 }

@@ -9,7 +9,8 @@ public class ContactDeletionTest extends TestBase {
     app.getNawigationHelper().goToHome();
     app.getContactHelper().selectedContact();
     app.getContactHelper().deleteContact();
-    //app.getNawigationHelper().goToHome();
+    app.getContactHelper().alertAfterDeleteContact(); //akceptacja okna js-owego :)
+    app.getNawigationHelper().goToHome();
     }
 
 }
