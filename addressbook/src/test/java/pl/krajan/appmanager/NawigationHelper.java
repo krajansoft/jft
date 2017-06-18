@@ -12,14 +12,26 @@ public class NawigationHelper extends BaseHelper {
     public NawigationHelper(WebDriver wd) {
         super(wd);
     }
+
     public void goToGroupPage() {
+        if(isElementPresent(By.tagName("h1"))
+                    && wd.findElement(By.tagName("h1")).getText().equals("Groups")
+                    && isElementPresent(By.name("new"))) {
+                return;
+            }
         click(By.linkText("groups"));
     }
+
+
     public void goToPageNewContact() {
         click(By.linkText("add new"));
     }
 
-    public void goToHome() {
+
+    public void goToHomePage() {
+        if (isElementPresent(By.id("maintable"))){
+            return;
+        }
         click(By.linkText("home"));
     }
 }
