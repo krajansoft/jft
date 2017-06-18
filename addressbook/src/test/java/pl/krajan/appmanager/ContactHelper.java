@@ -38,10 +38,8 @@ public class ContactHelper extends BaseHelper {
     }
 
     public void selectedContact() {
-            if (!wd.findElement(By.name("selected[]")).isSelected()) {
                 click(By.name("selected[]"));
             }
-    }
 
     public void deleteContact() {
         click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
@@ -57,5 +55,16 @@ public class ContactHelper extends BaseHelper {
 
     public void alertAfterDeleteContact() {
         wd.switchTo().alert().accept();
+    }
+
+    public void createContact(ContactData contact, boolean b) {
+        fillContactForm(contact, true);
+        submitContactCreation();
+
+    }
+
+    public boolean isThereAContact() {
+        return isElementPresent(By.name("selected[]"));
+
     }
 }
