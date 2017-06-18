@@ -2,7 +2,6 @@ package pl.krajan.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import pl.krajan.model.ContactData;
 
 /**
@@ -14,15 +13,15 @@ public class ContactHelper extends BaseHelper {
         super(wd);
     }
 
-    public void returnToNewContact() {
+    public void returnToHomePage() {
         click(By.linkText("home page"));
     }
 
-    public void submitNewContact() {
-        click(By.xpath("//div[@id='content']/form/input[21]"));
+    public void submitContactCreation() {
+        click(By.name("submit"));
     }
 
-    public void fillNewContact(ContactData contactData) {
+    public void fillContactForm(ContactData contactData) {
         type(By.name("firstname"), contactData.getFirstname());
         type(By.name("lastname"), contactData.getLastname());
         type(By.name("nickname"), contactData.getNickname());
@@ -43,7 +42,7 @@ public class ContactHelper extends BaseHelper {
     }
 
     public void initContactModification() {
-        click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+        click(By.cssSelector("img[alt='Edit']"));
     }
 
     public void submitContactModification() {
