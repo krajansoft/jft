@@ -34,7 +34,7 @@ public class ApplicationManager {
         } else if (browser.equals(BrowserType.EDGE)) {
             wd = new EdgeDriver();
         }
-        wd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wd.get("http://localhost:8080/addressbook/");
         groupHelper = new GroupHelper(wd);
         nawigationHelper = new NawigationHelper(wd);
