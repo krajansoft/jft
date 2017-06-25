@@ -2,9 +2,13 @@ package pl.krajan.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import pl.krajan.model.ContactData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by kraja on 2017-06-09.
@@ -71,5 +75,18 @@ public class ContactHelper extends BaseHelper {
 
     public int getContactCount() {
         return wd.findElements(By.name("selected[]")).size();
+    }
+
+    public List<ContactData> getContactList() {
+        List<ContactData> contacts = new ArrayList<ContactData>();
+        List<WebElement> elements = wd.findElements(By.cssSelector("#maintable tr[name='entry']"));
+        for (WebElement element : elements) {
+            String firstname = element.findElement(By.cssSelector("td:nth-child(3)")).getText();
+            String lastname = element.findElement(By.cssSelector("td:nth-child(3)")).getText();
+            //int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            ContactData contact = new ContactData(firstname, lastname, null, null, null, null, null, null);
+            contacts.add(contact);
+        }
+        return contacts;
     }
 }

@@ -4,6 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pl.krajan.model.ContactData;
 
+import java.util.List;
+
 /**
  * Created by kraja on 2017-06-12.
  */
@@ -17,13 +19,13 @@ public class ContactModificationTest extends TestBase {
             app.getContactHelper().createContact(new ContactData("Adamqa", "Krajan", "Krajanka", "krajansoft", "777444233", "krajansoft@gmail.com", "test adres", "AdamQA1"), true);
             app.getNawigationHelper().goToHomePage();
         }
-        int before = app.getContactHelper().getContactCount();
-        app.getContactHelper().selectedContact(before - 1);
+        List<ContactData> before = app.getContactHelper().getContactList();
+        app.getContactHelper().selectedContact(before.size() - 1);
         app.getContactHelper().initContactModification();
         app.getContactHelper().fillContactForm(new ContactData("Adamqa", "Krajanmod", "Krajankamod", "krajansoft", "777444233", "krajansoft@gmail.com", "test adres", null), false);
         app.getContactHelper().submitContactModification();
         app.getNawigationHelper().goToHomePage();
-        int after = app.getContactHelper().getContactCount();
-        Assert.assertEquals(after, before);
+        List<ContactData> after = app.getContactHelper().getContactList();
+        Assert.assertEquals(after.size(), before.size());
     }
 }
