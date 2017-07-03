@@ -4,9 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pl.krajan.model.ContactData;
 
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -16,11 +14,11 @@ public class ContactModificationTest extends TestBase {
 
     @Test
     public void testModificationContact(){
-        app.getNawigationHelper().goToHomePage();
+        app.goTo().goToHomePage();
         if (! app.getContactHelper().isThereAContact()) {
-            app.getNawigationHelper().goToPageNewContact();
+            app.goTo().goToPageNewContact();
             app.getContactHelper().createContact(new ContactData("Adamqa", "Krajan", "Krajanka", "krajansoft", "777444233", "krajansoft@gmail.com", "test adres", "AdamQA1"), true);
-            app.getNawigationHelper().goToHomePage();
+            app.goTo().goToHomePage();
         }
         List<ContactData> before = app.getContactHelper().getContactList();
         app.getContactHelper().selectedContact(before.size() - 1);
@@ -28,7 +26,7 @@ public class ContactModificationTest extends TestBase {
         ContactData contact = new ContactData(before.get(before.size() - 1).getId(),"Adamqa", "Krajanmod", "Krajankamod", "krajansoft", "777444233", "krajansoft@gmail.com", "test adres", "AdamQAmod");
         app.getContactHelper().fillContactForm(contact, false);
         app.getContactHelper().submitContactModification();
-        app.getNawigationHelper().goToHomePage();
+        app.goTo().goToHomePage();
         List<ContactData> after = app.getContactHelper().getContactList();
         Assert.assertEquals(after.size(), before.size());
 
