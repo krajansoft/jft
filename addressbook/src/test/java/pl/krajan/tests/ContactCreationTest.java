@@ -15,7 +15,7 @@ public class ContactCreationTest extends TestBase {
         app.goTo().homePage();
         List<ContactData> before = app.contact().list();
         app.goTo().goNewContact();
-        ContactData contact = new ContactData("Adamqa2", "Krajan", "Krajanka", "krajansoft", "777444233", "krajansoft@gmail.com", "test adres", "AdamQA1");
+        ContactData contact = new ContactData().withFirstname("Adamqa2").withLastname("Krajan").withNickname("Krajanka").withCompany("krajansoft").withMobile("777444233").withEmail("krajansoft@gmail.com").withAddress2("test adres").withGroup("AdamQA1");
         app.contact().create(contact, true);
         app.goTo().homePage();
         List<ContactData> after = app.contact().list();
