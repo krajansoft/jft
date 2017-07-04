@@ -7,8 +7,9 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import pl.krajan.model.ContactData;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by kraja on 2017-06-09.
@@ -41,10 +42,9 @@ public class ContactHelper extends BaseHelper {
 
     }
 
-    public void selectedContact(int index) {
-                wd.findElements(By.name("selected[]")).get(index).click();
-                //click(By.name("selected[]"));
-            }
+    public void selectedContactById(int id) {
+        wd.findElement(By.cssSelector("input[value ='" + id + "']")).click();
+    }
 
     public void deleteContact() {
         click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
@@ -67,14 +67,15 @@ public class ContactHelper extends BaseHelper {
         submitContactCreation();
 
     }
-    public void modyfy(int index, ContactData contact) {
-        selectedContact(index);
+    public void modyfy(ContactData contact) {
+        selectedContactById(contact.getId());
         initContactModification();
         fillContactForm(contact, false);
         submitContactModification();
     }
-    public void delate(int index) {
-        selectedContact(index);
+
+    public void delate(ContactData contact) {
+        selectedContactById(contact.getId());
         deleteContact();
         alertAfterDeleteContact(); //akceptacja okna js-owego :)
     }
@@ -88,8 +89,9 @@ public class ContactHelper extends BaseHelper {
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public List<ContactData> list() {
-        List<ContactData> contacts = new ArrayList<ContactData>();
+
+    public Set<ContactData> all() {
+        Set<ContactData> contacts = new HashSet<ContactData>();
         List<WebElement> elements = wd.findElements(By.cssSelector("#maintable tr[name='entry']"));
         for (WebElement element : elements) {
             String firstname = element.findElement(By.cssSelector("td:nth-child(3)")).getText();
@@ -100,4 +102,6 @@ public class ContactHelper extends BaseHelper {
         }
         return contacts;
     }
+
+
 }
