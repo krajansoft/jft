@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import pl.krajan.model.ContactData;
+import pl.krajan.model.Contacts;
 
 import java.util.HashSet;
 import java.util.List;
@@ -90,8 +91,8 @@ public class ContactHelper extends BaseHelper {
     }
 
 
-    public Set<ContactData> all() {
-        Set<ContactData> contacts = new HashSet<ContactData>();
+    public Contacts all() {
+        Contacts contacts = new Contacts();
         List<WebElement> elements = wd.findElements(By.cssSelector("#maintable tr[name='entry']"));
         for (WebElement element : elements) {
             String firstname = element.findElement(By.cssSelector("td:nth-child(3)")).getText();
