@@ -95,11 +95,13 @@ public class ContactHelper extends BaseHelper {
 
     private Contacts contactsCache = null;
 
+
     public Contacts all() {
         if (contactsCache != null){
             return new Contacts(contactsCache);
         }
-        contactsCache = new Contacts();
+
+            contactsCache = new Contacts();
         List<WebElement> elements = wd.findElements(By.cssSelector("#maintable tr[name='entry']"));
         for (WebElement element : elements) {
             String firstname = element.findElement(By.cssSelector("td:nth-child(3)")).getText();
