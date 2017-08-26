@@ -30,8 +30,8 @@ public class GroupModificationTest extends TestBase {
         GroupData group = new GroupData()
                 .withId(modyfiGroup.getId()).withName("AdamQA1").withHeader("Header test").withFooter("Footer test");
         app.group().modify(group);
+        assertThat(app.group().count(), equalTo( before.size()));
         Groups after = app.group().all();
-        assertEquals(after.size(), before.size());
         assertThat(after, equalTo(before.withOut(modyfiGroup).withAdded(group)));
 
 
