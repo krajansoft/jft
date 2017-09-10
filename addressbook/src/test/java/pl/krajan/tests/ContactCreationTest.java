@@ -6,6 +6,7 @@ import pl.krajan.model.ContactData;
 import pl.krajan.model.Contacts;
 
 
+import java.io.File;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -19,7 +20,8 @@ public class ContactCreationTest extends TestBase {
         app.goTo().homePage();
         Contacts before = app.contact().all();
         app.goTo().goNewContact();
-        ContactData contact = new ContactData().withFirstname("Adamqa2").withLastname("Krajan").withNickname("Krajanka").withCompany("krajansoft").withMobile("777444233").withEmail("krajansoft@gmail.com").withAddress2("test adres").withGroup("AdamQA1");
+        File photo = new File("src/test/resources/plik.png");
+        ContactData contact = new ContactData().withFirstname("Adamqa2").withLastname("Krajan").withNickname("Krajanka").withCompany("krajansoft").withMobile("777444233").withEmail("krajansoft@gmail.com").withAddress2("test adres").withGroup("AdamQA1").withPhoto(photo);
         app.contact().create(contact, true);
         app.goTo().homePage();
         Contacts after = app.contact().all();
