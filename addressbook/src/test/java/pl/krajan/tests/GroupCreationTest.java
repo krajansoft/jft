@@ -2,6 +2,8 @@ package pl.krajan.tests;
 
 
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -52,6 +54,20 @@ public class GroupCreationTest extends TestBase {
         List<GroupData> groups = (List<GroupData>) xStream.fromXML(xml);
         return  groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
     }
+    @DataProvider
+    public Iterator<Object[]> validGroupsJson() throws IOException {
+        List<Object[]> list = new ArrayList<Object[]>();
+        BufferedReader reader = new BufferedReader(new FileReader("src/test/resources/groups.json"));
+        String json = "";
+        String line = reader.readLine();
+        while (line != null){
+            json += line;
+            line = reader.readLine();
+        }
+        Gson gson = new Gson();
+        List<GroupData> groups = gson.fromJson(json, new TypeToken<List<GroupData>>(){}.getType());
+        return  groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
+    }
 
 
 
@@ -69,6 +85,17 @@ public class GroupCreationTest extends TestBase {
 
     @Test(dataProvider = "validGroupsXml")
     public void testGroupCreationXml(GroupData group) {
+        app.goTo().groupPage();
+        Groups before = app.group().all();
+        app.group().create(group);
+        assertThat(app.group().count(), equalTo( before.size() + 1));
+        Groups after = app.group().all();
+        assertThat(after, equalTo(
+                before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+
+    }
+    @Test(dataProvider = "validGroupsJson")
+    public void testGroupCreationJson(GroupData group) {
         app.goTo().groupPage();
         Groups before = app.group().all();
         app.group().create(group);
